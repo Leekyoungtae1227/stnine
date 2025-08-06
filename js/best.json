@@ -1,0 +1,218 @@
+[
+  {
+    "title": "럭셔리 셔츠",
+    "color": ["white", "green", "blue", "black"],
+    "cost": "490,000",
+    "price": "290,000",
+    "sale": "41%",
+    "img": "images/001.jpg",
+    "alt": "001"
+  },
+  {
+    "title": "썸머 블라우스",
+    "color": ["white", "green", "blue", "black"],
+    "cost": "420,000",
+    "price": "210,000",
+    "sale": "50%",
+    "img": "images/002.jpg",
+    "alt": "002"
+  },
+  {
+    "title": "체크 셔츠",
+    "color": ["green", "blue", "black"],
+    "cost": "370,000",
+    "price": "199,000",
+    "sale": "46%",
+    "img": "images/003.jpg",
+    "alt": "003"
+  },
+  {
+    "title": "플라워 블라우스",
+    "color": ["pink","blue"],
+    "cost": "360,000",
+    "price": "240,000",
+    "sale": "33%",
+    "img": "images/004.jpg",
+    "alt": "004"
+  },
+  {
+    "title": "캐주얼 티셔츠",
+    "color": ["gray", "black"],
+    "cost": "250,000",
+    "price": "120,000",
+    "sale": "52%",
+    "img": "images/005.jpg",
+    "alt": "005"
+  },
+  {
+    "title": "슬림핏 블라우스",
+    "color": ["navy", "white"],
+    "cost": "430,000",
+    "price": "260,000",
+    "sale": "40%",
+    "img": "images/006.jpg",
+    "alt": "006"
+  },
+  {
+    "title": "하프넥 셔츠",
+    "color": ["green", "gray"],
+    "cost": "300,000",
+    "price": "150,000",
+    "sale": "50%",
+    "img": "images/007.jpg",
+    "alt": "007"
+  },
+  {
+    "title": "린넨 블라우스",
+    "color": ["ivory", "brown"],
+    "cost": "310,000",
+    "price": "190,000",
+    "sale": "39%",
+    "img": "images/008.jpg",
+    "alt": "008"
+  },
+  {
+    "title": "스트라이프 셔츠",
+    "color": ["blue", "white"],
+    "cost": "350,000",
+    "price": "200,000",
+    "sale": "43%",
+    "img": "images/009.jpg",
+    "alt": "009"
+  },
+  {
+    "title": "레이스 블라우스",
+    "color": ["white"],
+    "cost": "390,000",
+    "price": "210,000",
+    "sale": "46%",
+    "img": "images/010.jpg",
+    "alt": "010"
+  },
+  {
+    "title": "벌룬소매 블라우스",
+    "color": ["pink", "ivory"],
+    "cost": "420,000",
+    "price": "250,000",
+    "sale": "40%",
+    "img": "images/011.jpg",
+    "alt": "011"
+  },
+  {
+    "title": "셔링 블라우스",
+    "color": ["mint", "white"],
+    "cost": "400,000",
+    "price": "230,000",
+    "sale": "42%",
+    "img": "images/012.jpg",
+    "alt": "012"
+  },
+  {
+    "title": "빈티지 셔츠",
+    "color": ["brown", "navy"],
+    "cost": "380,000",
+    "price": "190,000",
+    "sale": "50%",
+    "img": "images/013.jpg",
+    "alt": "013"
+  },
+  {
+    "title": "시스루 블라우스",
+    "color": ["black", "white"],
+    "cost": "410,000",
+    "price": "270,000",
+    "sale": "34%",
+    "img": "images/014.jpg",
+    "alt": "014"
+  },
+  {
+    "title": "프릴 블라우스",
+    "color": ["lavender", "white"],
+    "cost": "440,000",
+    "price": "290,000",
+    "sale": "34%",
+    "img": "images/015.jpg",
+    "alt": "015"
+  },
+  {
+    "title": "리본 블라우스",
+    "color": ["beige", "blue"],
+    "cost": "460,000",
+    "price": "310,000",
+    "sale": "33%",
+    "img": "images/016.jpg",
+    "alt": "016"
+  },
+  {
+    "title": "크롭 셔츠",
+    "color": ["white", "black"],
+    "cost": "350,000",
+    "price": "210,000",
+    "sale": "40%",
+    "img": "images/017.jpg",
+    "alt": "017"
+  },
+  {
+    "title": "하트넥 블라우스",
+    "color": ["red", "white"],
+    "cost": "390,000",
+    "price": "250,000",
+    "sale": "36%",
+    "img": "images/018.jpg",
+    "alt": "018"
+  },
+  {
+    "title": "기본 셔츠",
+    "color": ["white", "gray"],
+    "cost": "270,000",
+    "price": "160,000",
+    "sale": "41%",
+    "img": "images/019.jpg",
+    "alt": "019"
+  },
+  {
+    "title": "백리본 블라우스",
+    "color": ["blue", "beige"],
+    "cost": "430,000",
+    "price": "300,000",
+    "sale": "30%",
+    "img": "images/020.jpg",
+    "alt": "020"
+  },
+  {
+    "title": "셔링넥 셔츠",
+    "color": ["white", "olive"],
+    "cost": "450,000",
+    "price": "330,000",
+    "sale": "27%",
+    "img": "images/021.jpg",
+    "alt": "021"
+  },
+  {
+    "title": "가오리핏 블라우스",
+    "color": ["gray", "brown"],
+    "cost": "390,000",
+    "price": "280,000",
+    "sale": "28%",
+    "img": "images/022.jpg",
+    "alt": "022"
+  },
+  {
+    "title": "언발란스 셔츠",
+    "color": ["white", "lightblue"],
+    "cost": "310,000",
+    "price": "190,000",
+    "sale": "39%",
+    "img": "images/023.jpg",
+    "alt": "023"
+  },
+  {
+    "title": "보트넥 블라우스",
+    "color": ["black", "white"],
+    "cost": "400,000",
+    "price": "260,000",
+    "sale": "35%",
+    "img": "images/024.jpg",
+    "alt": "024"
+  }
+]
