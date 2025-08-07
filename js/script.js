@@ -170,55 +170,7 @@ fetch("./js/best.json")
 })
 .catch(err=> console.error("🤢 데이터 로딩에 실패했습니다.", err));
 
-/**new-arrivals container mt-5**/
-  const newItemsContainer = document.getElementById('newItems');
 
-  fetch('arrivals.json')
-    .then(res => res.json())
-    .then(data => {
-      let html = '';
-      data.forEach(item => {
-        const colorHtml = item.color.map(co => `<span class="${co}"></span>`).join('');
-        html += `
-          <div class="item-card col-6 col-md-3 mb-4">
-            <div class="card h-100 text-center">
-              <img src="${item.img}" alt="${item.alt}" class="card-img-top">
-              <div class="card-body">
-                <div class="pd-color mb-2">${colorHtml}</div>
-                <h5 class="card-title">${item.title}</h5>
-                <div class="price mb-2">
-                  <del class="text-muted">${item.cost}원</del><br>
-                  <span class="sale text-danger">${item.sale}</span>
-                  <span class="fw-bold text-dark">${item.price}원</span>
-                </div>
-                <div class="buttons d-flex gap-1">
-                  <button class="btn btn-dark btn-sm w-50 best-cart"><i class="ri-shopping-bag-4-line"></i></button>
-                  <button class="btn btn-outline-secondary btn-sm w-50 best-heart"><i class="ri-heart-line"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        `;
-      });
-      newItemsContainer.innerHTML = html;
-    })
-    .catch(error => console.error('arrivals.json 불러오기 실패:', error));
-
-  // 뷰 모드 버튼 동작
-  document.querySelectorAll('.view-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const mode = btn.dataset.mode;
-      const container = document.getElementById('newItems');
-
-      // 기존 클래스 제거
-      container.className = 'row';
-      document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      // 새로운 클래스 추가
-      container.classList.add(`view-mode-${mode}`);
-    });
-  });
 }); //jquery
 
 let slideIndex = 1;
