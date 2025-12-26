@@ -586,9 +586,6 @@ input.sol:checked+span::after{
     background-color:#333;
 }
 
-
-
-
 /* 색상 클래스들 */
 .white    { background: white; 
 border: 1px solid #333;
@@ -613,7 +610,3 @@ border: 1px solid #333}
 .olive    { background: olive; }
 .lightblue { background: lightblue; 
 border: 1px solid #333}
-
-
-
-

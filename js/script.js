@@ -1,22 +1,4 @@
 $(function(){
-let wrapperWidth = 0;
-let pgConst =0;
-const totalPage =3;
-
-
-
-//페이지 버튼 생성
-
-for(let i=0; i <totalPage; i++){
-    if(i==0){
-        $('#page').append(`<li date-index="${i}" class="active"></li>`);
-    }else{
-        $('#page').append(`<li date-index="${i}"></li>`);
-    }
-}
-
-
-
 
    $('.nav-item').hover(function(){
      $(this).find('ul.lnb').fadeToggle();
@@ -28,17 +10,17 @@ for(let i=0; i <totalPage; i++){
       $(this).find('.categorybox').fadeToggle();
    });
 
-$(document).on('mouseenter', '.best-cart', function(){
-    $(this).find('i').removeClass('ri-shopping-bag-4-line').addClass('ri-shopping-bag-4-fill');
-}).on('mouseleave', '.best-cart', function(){
-    $(this).find('i').removeClass('ri-shopping-bag-4-fill').addClass('ri-shopping-bag-4-line');
-});
+   $('.best-cart').mouseenter(function(){
+       $(this).find('i').removeClass('ri-shopping-bag-4-line').addClass('ri-shopping-bag-4-fill');
+   }).mouseleave(function(){
+       $(this).find('i').removeClass('ri-shopping-bag-4-fill').addClass('ri-shopping-bag-4-line');
+   });
 
-$(document).on('mouseenter', '.best-heart', function(){
-    $(this).find('i').removeClass('ri-heart-line').addClass('ri-heart-fill');
-}).on('mouseleave', '.best-heart', function(){
-    $(this).find('i').removeClass('ri-heart-fill').addClass('ri-heart-line');
-});
+   $('.best-heart').mouseenter(function(){
+       $(this).find('i').removeClass('ri-heart-line').addClass('ri-heart-fill');
+   }).mouseleave(function(){
+       $(this).find('i').removeClass('ri-heart-fill').addClass('ri-heart-line');
+   });
 
    $(window).on('scroll', function(){
       const navigation = $('.navigation').offset().top;
@@ -55,54 +37,141 @@ $(document).on('mouseenter', '.best-heart', function(){
       }
    });
 
+  setInterval(bestSlide, 8000);
 
-$(window).on('load', function(){
+   let wrapperWidth = 0;
+   let pgCount = 0;
+   const totalPage = 3;
 
-    const pageHeight = $('.slide-page:first-child').outerHeight(true);
-    $('.slide-wrapper').css('height', pageHeight+"px");
-    wrapperWidth = $('.slide-wrapper').width();
-});
+   //페이지버튼 생성
+   for(let i=0; i < totalPage; i++){
+      if(i==0){ 
+              $('#page').append(`<li data-index="${i}" class="active"></li>`);
+      }else{
+              $('#page').append(`<li data-index="${i}"></li>`);
+      }       
+   }
 
-setInterval(bestSilde, 8000);
+ 
+     function updatePage(){
+        $('#page li').removeClass('active')
+                     .eq(pgCount).addClass('active');
+     }
 
+     function bestSlide(){
+        pgCount++;
+        if(pgCount == totalPage){
+            pgCount = 0;
 
-function updatePage(){
-    $('#page li').removeClass('active')
-        .eq(pgCount).addClass('active')
-    
-}
+        }
+        updatePage();
+   
+        $(".slide-wrapper-in").animate({
+            left: -wrapperWidth + "px"
+        }, 300, function(){
+            //1. 첫 번째 슬라이드 복제 후 뒤로 이동
+            const first = $('.slide-wrapper-in .slide-page').first();
+            first.clone().appendTo('.slide-wrapper-in')
+            first.remove();
+            $('.slide-wrapper-in').css('left', 0);
+        });
 
-
-
-
-
-
-function bestSilde(){
-    pgConst++;
-    if(pgConst == totalPage){
-        pgConst =0;
-    }
-
-
-
-
-    $('.slide-wrapper-in').animate({
-        left : -wrapperWidth + "px"
-    }, 300, function(){
-
-        const first = $('.slide-wrapper-in .slide-page').first();
-        first.clone().appendTo('.slide-wrapper-in');
-        first.remove();   
-        $('.slide-wrapper-in').css('left', 0);
-    });
-}
-
+     }
 
 
+    function preBestSlide(){
+        pgCount--;
+        if(pgCount < 0){
+            pgCount = totalPage -1;
+        }
+        updatePage();
+
+        const last = $('.slide-wrapper-in .slide-page').last();
+        last.clone().prependTo('.slide-wrapper-in');
+         last.remove();
+        //css 로 왼쪽으로 미리이동
+        $('.slide-wrapper-in').css('left', -wrapperWidth + "px");
+
+        //슬라이드 애니메이션 거꾸로
+        $('.slide-wrapper-in').animate({
+            left : '0px',
+        },300, function(){
+            last.remove();
 
 
+        });
+    };
 
-});
+     $("#prev").on("click", function(){
+        preBestSlide();
+     });
+
+     $("#next").on("click", function(){
+        bestSlide();
+     });
+
+
+fetch("./js/best.json")
+.then(res => res.json())
+.then(rs => {
+
+   let slidePage = "";
+   let colPage = "";
+   for(let i = 0; i < 3; i++) {
+      colPage = "";
+
+      for(let j =0; j < 8; j++) {
+         const index = i * 8 + j;
+         const data = rs[index];
+         
+         //색상처리
+         let colorHtml = "";
+         data.color.forEach(co => {
+            colorHtml += `<span class="${co}"></span>`;
+         });
+
+         //상품목록 만들기
+         colPage += `
+            <div class="col-md-3 my-3">
+                        <a href="#" class="img-best-box">
+                            <img src="${data.img}" alt="${data.alt}">
+                            <div class="pd-best-box text-center">
+                                <div class="pd-color">
+                                    ${colorHtml}
+                                </div>
+                                <div class="best-title">${data.title}</div>
+                                <div class="pd-best-pay">
+                                <del>${data.cost}원</del>
+                                <span class="sail">${data.sale}</span>
+                                <span class="money">${data.price}원</span>
+                                </div>
+                            </div>
+                            <div class="btn-box">
+                                    <button type="button" class="best-cart">
+                                        <i class="ri-shopping-bag-4-line"></i>
+                                    </button>
+                                    <button type="button" class="best-heart">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                            </div>
+                        </a>
+                    </div>
+         `;
+      }
+      slidePage += `<div class="row slide-page">${colPage}</div>`;
+
+   }
+     document.querySelector(".slide-wrapper-in").innerHTML = slidePage;
+
+        const pageHeight = $('.slide-page:first-child').outerHeight(true);
+        $('.slide-wrapper').css('height', pageHeight+"px");
+        wrapperWidth = $(".slide-wrapper").width();
+     
+})
+.catch(err=> console.error("🤢 데이터 로딩에 실패했습니다.", err));
+
+
+}); //jquery
 
 let slideIndex = 1;
 showSlides(slideIndex);
